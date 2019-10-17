@@ -1,0 +1,72 @@
+//找出所有供应商的姓名和所在城市：
+select Sno,City
+from S_table;
+
+//找出所有零件的名称、颜色、重量：
+select Pname,Color,Weight
+from P_table;
+
+//找出使用供应商S1所供应零件:
+select Pno,Pname
+from P_table
+where pno in(
+select pno 
+from SPJ_table
+where Sno='S1');
+
+//找出工程项目J2使用的各种零件的名称及其数量：
+select Pname,Qty
+from P_table,SPJ_table
+where SPJ_table.Pno=P_table.Pno
+	and SPJ_table.Jno='J2';
+
+//找出上海厂商供应的所有零件号码：
+select Pno
+from S_table,SPJ_table
+where S_table.Sno=SPJ_table.sno
+	and S_table.City='上海';
+	
+//找出使用上海产的零件的工程名称：
+select distinct Jname
+from S_table,J_table,SPJ_table
+where S_table.Sno=SPJ_table.Sno
+	and SPJ_table.Jno=J_table.Jno
+	and S_table.City='上海';
+	
+//找出没有使用天津产的零件的工程号码：
+select distinct Jno
+from SPJ_table
+where Sno not in(
+	select Sno from S_table
+	where
+    SPJ_table.Sno=S_table.Sno	
+	and City='天津');
+	
+//把全部红色零件的颜色改成蓝色：
+update  P_table set Color='蓝' where Color='红'; 
+
+//由S5供给J4的零件P6改为由S3供应：
+update SPJ_table set Sno='S5' 
+where Sno='S3' and Jno='J4' and Pno='P6';
+
+////从供应商关系中删除S2的记录，并从
+供应情况关系中删除相应的记录：
+delete from S_table where Sno='S2';
+delete from SPJ_table where Sno='S2';
+
+//将(S2,J6,P4,200)插入供应情况关系中：
+insert into SPJ_table values('S2','J6','P4',200);
+
+
+
+
+
+
+
+
+
+
+
+
+
+

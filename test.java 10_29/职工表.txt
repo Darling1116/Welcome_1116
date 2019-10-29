@@ -1,0 +1,95 @@
+create database 子查询 charset=utf8;
+use 子查询;
+
+//要先处理含外键的从表
+create table dolar_standar(
+title char(12) primary key  default '' not null comment '职称',
+standar int default 0 not null comment '工资标准'
+);
+
+
+insert into dolar_standar
+(title,standar)
+values
+('高级',5000),
+('中级',3500),
+('初级',2000);
+
+
+
+//枚举是一个类型，date类型的不能有默认值
+create table employee(
+em_id int primary key not null comment '职工编号',
+name char(15) comment '姓名',
+sex  enum('男','女') comment '性别',
+birth date not null  comment '出生年月',
+depat varchar(15) default '' not null comment '工作部门',
+title char(12) default '' not null comment '职称'
+);
+
+
+//外键设置在此键不是主键的表格中
+alter table employee add foreign key(title) references  dolar_standar(title);
+
+insert into employee(
+em_id,name,sex,birth,depat,title)
+values
+(0902,'张骞','男','1979-8-9','人事部','高级'),
+(0903,'田佳','女','1971-9-3','市场部','初级'),
+(0904,'姜茸','女','1982-8-2','后勤部','中级'),
+(0906,'吴越','男','1983-4-8','安全部','初级'),
+(0907,'马南','女','1980-8-6','人事部','中级'),
+(0908,'简里','男','1977-8-4','市场部','中级'),
+(0909,'王月茹','女','1988-8-2','后勤部','中级'),
+(0910,'左丞','男','1982-4-8','安全部','初级'),
+(0911,'花月华','女','1983-8-6','人事部','中级'),
+(0912,'','男','1976-8-4','后勤部','中级');
+
+
+insert into dolar_standar
+(title,standar)
+values
+('高级',5000),
+('中级',3500),
+('初级',2000);
+
+create table dolar 
+(em_id int primary key not null comment '职工编号',
+ title char(12) default '' not null comment '职称',
+salary int default 0 not null comment '工资数额')
+	
+	 
+create table attendance(
+em_id int primary key not null comment '职工编号',
+sickday int default 0 not null comment '病假天数',
+thingday int default 0 not null comment '事假天数',
+addworkday int default  0 not null comment '加班天数');
+
+insert into attendance(
+em_id,sickday,thingday,addworkday)
+values
+(0902,3,0,2),
+(0903,0,0,0),
+(0904,0,0,1),
+(0906,0,0,0),
+(0907,6,7,0),
+(0908,4,8,2),
+(0909,6,4,8),
+(0910,0,0,0);
+
+
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+

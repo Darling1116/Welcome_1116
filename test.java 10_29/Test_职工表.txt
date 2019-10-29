@@ -1,0 +1,50 @@
+3.
+create table dolar 
+(em_id int primary key not null comment '职工编号',
+ title char(12) default '' not null comment '职称',
+salary int default 0 not null comment '工资数额')
+select employee.em_id,employee.title,standar salary
+from dolar_standar,employee
+where dolar_standar.title = employee.title;
+
+alter table dolar add foreign key(title) references dolar_standar(title);
+
+
+
+//select birth,timestampdiff(year,birth,curdate()) age from employee
+//where timestampdiff(year,birth,curdate())>30;
+
+4.
+//多表连接关系中，更新也要涉及到多个表
+update dolar,employee set salary=1.5*salary
+where dolar.em_id=employee.em_id
+	and employee.birth in(select birth
+	from employee 
+	where timestampdiff(year,birth,curdate())>30);
+
+
+5.
+select name,employee.title,salary
+from employee,dolar
+where employee.em_id=dolar.em_id
+	and depat='后勤部'
+	order by birth;
+	
+	
+7.//初始的工资数额为标准工资
+update dolar,attendance 
+set salary=salary+addworkday*salary*0.03
+	-sickday*salary*0.01-thingday*salary*0.02
+where dolar.em_id=attendance.em_id;
+
+
+8.
+select * from employee x
+where x.depat<>'后勤部'
+	and x.birth <(
+	select MIN(birth)
+			from employee
+			where depat='后勤部');
+
+
+

@@ -170,8 +170,22 @@ class Tree{
 		return true;
 	}
 	
+	int hight(TreeNode root){
+		if(root == null)
+			return 0;
+		return hight(root.left)>hight(root.right)?
+				hight(root.left)+1:hight(root.right)+1;
+	}
 	
-	
+	//判断一棵树是否为满二叉树(子问题思路)
+	boolean isComplementTree2(TreeNode root){
+		if(root == null)
+			return true;
+		if(root.left == null && root.right == null)
+			return false;
+		return isComplementTree(root.left)&&isComplementTree(root.right)
+		&&Math.abs(hight(root.left)-hight(root.right))==1;
+	}
 	
 }
 
@@ -202,6 +216,12 @@ public class binaryTree_2 {
 		
 		boolean ret = binaryTree.isComplementTree(root);
 		System.out.println("是否为完全二叉树： "+ret);
+		//System.out.println("二叉树的高度： "+hight);
+		boolean ret2 = binaryTree.isComplementTree2(root);
+		System.out.println("是否为完全二叉树： "+ret);
+		int hight = binaryTree.hight(root);
+		
+		
 		
 	}
 }

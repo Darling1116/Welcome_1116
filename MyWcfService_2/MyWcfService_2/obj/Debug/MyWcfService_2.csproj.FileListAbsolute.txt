@@ -1,7 +1,0 @@
-D:\Workspaces\MyWcfService_2\MyWcfService_2\bin\MyWcfService_2.dll.config
-D:\Workspaces\MyWcfService_2\MyWcfService_2\bin\MyWcfService_2.dll
-D:\Workspaces\MyWcfService_2\MyWcfService_2\bin\MyWcfService_2.pdb
-D:\Workspaces\MyWcfService_2\MyWcfService_2\obj\Debug\MyWcfService_2.csproj.AssemblyReference.cache
-D:\Workspaces\MyWcfService_2\MyWcfService_2\obj\Debug\MyWcfService_2.csproj.CoreCompileInputs.cache
-D:\Workspaces\MyWcfService_2\MyWcfService_2\obj\Debug\MyWcfService_2.dll
-D:\Workspaces\MyWcfService_2\MyWcfService_2\obj\Debug\MyWcfService_2.pdb

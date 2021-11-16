@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/image_0">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="90dp"
+        android:paddingLeft="44dp"
+        android:paddingRight="44dp"
+        >
+        <Button
+            android:id="@+id/btn_enter"
+            android:layout_alignParentLeft="true"
+            android:layout_width="500dp"
+            android:layout_height="60dp"
+            android:text="开启音乐之旅"
+            android:textSize="35sp"
+            android:textColor="#ffffff"
+            android:background="@drawable/shape_enter_btn"/>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

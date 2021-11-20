@@ -4,27 +4,84 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:context=".MainActivity"
     android:background="@mipmap/image_0">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="80dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="90dp"
-        android:paddingLeft="44dp"
-        android:paddingRight="44dp"
-        >
-        <Button
-            android:id="@+id/btn_enter"
-            android:layout_alignParentLeft="true"
-            android:layout_width="500dp"
+        android:id="@+id/local_music_bottonlayout"
+        android:background="@mipmap/image_1">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#999eee"/>
+        <ImageView
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:src="@mipmap/icon_song"
+            android:layout_centerVertical="true"
+            android:background="@mipmap/a1"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/local_music_botton_iv_icon"/>
+
+        <TextView
+            android:id="@+id/local_music_botton_iv_song"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="告白气球"
+            android:layout_toRightOf="@id/local_music_botton_iv_icon"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/local_music_botton_iv_singer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="周杰伦"
+            android:textSize="12sp"
+            android:layout_below="@id/local_music_botton_iv_song"
+            android:layout_alignLeft="@id/local_music_botton_iv_song"
+            android:layout_marginRight="10dp"/>
+
+        <ImageView
+            android:id="@+id/local_music_botton_iv_next"
+            android:layout_width="60dp"
             android:layout_height="60dp"
-            android:text="开启音乐之旅"
-            android:textSize="35sp"
-            android:textColor="#ffffff"
-            android:background="@drawable/shape_enter_btn"/>
+            android:layout_centerVertical="true"
+            android:src="@mipmap/icon_next"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            />
 
+        <ImageView
+            android:id="@+id/local_music_botton_iv_play"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/icon_play"
+            android:layout_toLeftOf="@id/local_music_botton_iv_next"
+            android:layout_marginRight="20dp" />
+
+        <ImageView
+            android:id="@+id/local_music_botton_iv_last"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/icon_last"
+            android:layout_toLeftOf="@id/local_music_botton_iv_play"
+            android:layout_marginRight="20dp"/>
     </RelativeLayout>
-
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/local_music_rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/local_music_bottonlayout">
+    </androidx.recyclerview.widget.RecyclerView>
 
 </RelativeLayout>
+

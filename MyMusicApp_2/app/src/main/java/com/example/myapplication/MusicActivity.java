@@ -218,7 +218,7 @@ public class MusicActivity extends AppCompatActivity{
                     break;
                 case R.id.btn_next:
                     //切歌
-                    Log.i("INFO", "onClick:切歌按钮被点击");
+                    Log.i("INFO", "onClick:下切按钮被点击");
                     currentPlaying = (++currentPlaying) % resourceId.size();
                     prepareMedia();
                     animator.start();

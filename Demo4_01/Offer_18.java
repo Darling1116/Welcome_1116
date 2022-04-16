@@ -1,5 +1,6 @@
 package Demo4_01;
 
+
 class ListNode {
 	public int val;
 	public ListNode next;
@@ -50,16 +51,39 @@ class MyLinkedList {
 		return this.head;
 	}
 
+	// 反转链表_1
+	public ListNode reverseList_1() {
+		ListNode newhead = null;
+		ListNode cur = this.head;
+		while (cur != null) {
+			ListNode tmp = cur.next;
+			cur.next = newhead;
+			newhead = cur;
+			cur = tmp;
+		}
+		return newhead;
+	}
+
+	// 反转链表_2
+	public ListNode reverseList_2(ListNode head) {
+		if (head == null || head.next == null)
+			return head;
+		ListNode newhead = reverseList_2(head.next);
+		head.next.next = head;
+		head.next = null;
+		return newhead;
+	}
 }
 
 public class Offer_18 {
+
 	public static void main(String[] args) {
 		MyLinkedList list = new MyLinkedList();
 		list.addFirst(7);
 		list.addFirst(5);
 		list.addFirst(3);
 		list.display();
-		list.deleteNode(5);
+		// list.deleteNode(5);
 		list.display();
 
 	}

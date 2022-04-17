@@ -1,6 +1,5 @@
 package Demo4_01;
 
-
 class ListNode {
 	public int val;
 	public ListNode next;
@@ -73,6 +72,21 @@ class MyLinkedList {
 		head.next = null;
 		return newhead;
 	}
+
+	// 找链表中的倒数第k个结点
+	public ListNode getKthFromEnd(int k) {
+		ListNode fast = this.head;
+		ListNode slow = this.head;
+		while (k != 0) {
+			fast = fast.next;
+			k--;
+		}
+		while (fast != null) {
+			fast = fast.next;
+			slow = slow.next;
+		}
+		return slow;
+	}
 }
 
 public class Offer_18 {
@@ -84,7 +98,8 @@ public class Offer_18 {
 		list.addFirst(3);
 		list.display();
 		// list.deleteNode(5);
-		list.display();
+		ListNode kNode = list.getKthFromEnd(2);
+		System.out.println(kNode.val);
 
 	}
 }
